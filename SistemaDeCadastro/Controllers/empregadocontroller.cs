@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SistemaDeCadastro.Interfaces;
 using SistemaDeCadastro.Models;
+using SistemaDeCadastro.Interfaces;
 
 namespace SistemaDeCadastro.Controllers
 
-    {
-    [Route("api/[controller/")]
+{
+    [Route("api/[controller]")]
     [ApiController]
     public class empregadocontroller : Controller
     {
@@ -13,21 +13,21 @@ namespace SistemaDeCadastro.Controllers
 
         private readonly IEmpregadoRepositorio _empregadoRepositorio;
 
-        public empregadocontroller (IEmpregadoRepositorio empregadoRepositorio)
+        public empregadocontroller(IEmpregadoRepositorio empregadoRepositorio)
         {
             _empregadoRepositorio = empregadoRepositorio;
         }
 
         [HttpGet]
-        public async  Task<ActionResult<List<EmpregadoModel>>> BuscarTodosEmpregados()
-        
+        public async Task<ActionResult<List<EmpregadoModel>>> BuscarTodosEmpregados()
+
         {
             List<EmpregadoModel> empregado = await _empregadoRepositorio.BuscarTodosEmpregados();
             return Ok(empregado);
 
         }
 
-        [HttpGet]
+        [HttpGet("{id}") ]
         public async Task<ActionResult<EmpregadoModel>> BuscarPorId(int id)
 
         {
