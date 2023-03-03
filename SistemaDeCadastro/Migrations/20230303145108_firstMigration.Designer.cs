@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaDeCadastro.Data;
 
@@ -11,9 +12,10 @@ using SistemaDeCadastro.Data;
 namespace SistemaDeCadastro.Migrations
 {
     [DbContext(typeof(SistemaDeCadastroDBContext))]
-    partial class SistemaDeCadastroDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230303145108_firstMigration")]
+    partial class firstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,8 +68,10 @@ namespace SistemaDeCadastro.Migrations
                     b.Property<DateTime?>("DataTermino")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GerenteId")
-                        .IsRequired()
+                    b.Property<int>("EmpregadoIdEmpregado")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GerenteId")
                         .HasColumnType("int");
 
                     b.Property<string>("NomeProjeto")
@@ -76,20 +80,20 @@ namespace SistemaDeCadastro.Migrations
 
                     b.HasKey("IdProjeto");
 
-                    b.HasIndex("GerenteId");
+                    b.HasIndex("EmpregadoIdEmpregado");
 
                     b.ToTable("projetos");
                 });
 
             modelBuilder.Entity("SistemaDeCadastro.Models.ProjetoModel", b =>
                 {
-                    b.HasOne("SistemaDeCadastro.Models.EmpregadoModel", "Gerente")
+                    b.HasOne("SistemaDeCadastro.Models.EmpregadoModel", "Empregado")
                         .WithMany()
-                        .HasForeignKey("GerenteId")
+                        .HasForeignKey("EmpregadoIdEmpregado")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Gerente");
+                    b.Navigation("Empregado");
                 });
 #pragma warning restore 612, 618
         }

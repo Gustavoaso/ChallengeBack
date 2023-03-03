@@ -12,11 +12,14 @@ namespace SistemaDeCadastro.Data
         } 
         public DbSet<EmpregadoModel> empregados { get; set; }
         public DbSet<ProjetoModel> projetos { get; set; }
+      
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EmpregadoMap());
             modelBuilder.ApplyConfiguration(new ProjetoMap());
+          
             base.OnModelCreating(modelBuilder); 
         }
     } 

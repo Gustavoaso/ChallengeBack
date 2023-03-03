@@ -11,8 +11,15 @@ namespace SistemaDeCadastro.Data.Map
         builder.HasKey(x => x.IdProjeto);
         builder.Property(x => x.NomeProjeto).IsRequired();
         builder.Property(x => x.DataCriacao).IsRequired();
-        builder.Property(x => x.DataTermino).IsRequired();
-            builder.Property(x => x.Gerente).IsRequired();
+            builder.Property(x => x.DataTermino);
+
+            builder.Property(x => x.GerenteId);
+
+            builder.HasOne(x => x.Gerente);  
+
+           
+           
+
     }
 }
     

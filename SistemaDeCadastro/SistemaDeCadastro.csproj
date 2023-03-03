@@ -1,10 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\MembroController.cs" />
+    <Compile Remove="Data\Map\MembroMap.cs" />
+    <Compile Remove="Migrations\20230302162717_EmpregadoModel.cs" />
+    <Compile Remove="Migrations\20230302162717_EmpregadoModel.Designer.cs" />
+    <Compile Remove="Migrations\20230302190714_VinculoProjeto.cs" />
+    <Compile Remove="Migrations\20230302190714_VinculoProjeto.Designer.cs" />
+    <Compile Remove="Migrations\20230303061618_TableMembros.cs" />
+    <Compile Remove="Migrations\20230303061618_TableMembros.Designer.cs" />
+    <Compile Remove="Migrations\20230303063214_up.cs" />
+    <Compile Remove="Migrations\20230303063214_up.Designer.cs" />
+    <Compile Remove="Migrations\20230303063816_teste.cs" />
+    <Compile Remove="Migrations\20230303063816_teste.Designer.cs" />
+    <Compile Remove="Migrations\20230303125318_finalDB.cs" />
+    <Compile Remove="Migrations\20230303125318_finalDB.Designer.cs" />
+    <Compile Remove="Models\MembroModel.cs" />
+    <Compile Remove="Repositorios\Interfaces\IMembroRepositorio.cs" />
+    <Compile Remove="Repositorios\MembrosRepositorio.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />

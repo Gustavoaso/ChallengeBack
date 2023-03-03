@@ -24,7 +24,7 @@ public class Program
             );
 
         builder.Services.AddScoped<IEmpregadoRepositorio, EmpregadoRepositorio>();
-        
+        builder.Services.AddScoped<IProjetoRepositorio, ProjetoRepositorio>();
 
 
         var app = builder.Build();

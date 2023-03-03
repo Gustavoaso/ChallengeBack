@@ -12,8 +12,8 @@ using SistemaDeCadastro.Data;
 namespace SistemaDeCadastro.Migrations
 {
     [DbContext(typeof(SistemaDeCadastroDBContext))]
-    [Migration("20230301045149_InitialDB")]
-    partial class InitialDB
+    [Migration("20230303152428_VinculoProjetoEmpregado")]
+    partial class VinculoProjetoEmpregado
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,12 +40,14 @@ namespace SistemaDeCadastro.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Telefone")
+                    b.Property<string>("Telefone")
+                        .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(10)");
 
-                    b.Property<int>("UltimoNome")
-                        .HasColumnType("int");
+                    b.Property<string>("UltimoNome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdEmpregado");
 
@@ -63,10 +65,11 @@ namespace SistemaDeCadastro.Migrations
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DataTermino")
+                    b.Property<DateTime?>("DataTermino")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Gerente")
+                    b.Property<int?>("GerenteId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("NomeProjeto")
@@ -75,7 +78,20 @@ namespace SistemaDeCadastro.Migrations
 
                     b.HasKey("IdProjeto");
 
+                    b.HasIndex("GerenteId");
+
                     b.ToTable("projetos");
+                });
+
+            modelBuilder.Entity("SistemaDeCadastro.Models.ProjetoModel", b =>
+                {
+                    b.HasOne("SistemaDeCadastro.Models.EmpregadoModel", "Gerente")
+                        .WithMany()
+                        .HasForeignKey("GerenteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gerente");
                 });
 #pragma warning restore 612, 618
         }

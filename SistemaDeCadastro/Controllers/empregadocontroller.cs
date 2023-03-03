@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaDeCadastro.Models;
 using SistemaDeCadastro.Interfaces;
-
 namespace SistemaDeCadastro.Controllers
 
 {
@@ -44,6 +43,24 @@ namespace SistemaDeCadastro.Controllers
 
             return Ok(empregado);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<EmpregadoModel>> Atualizar([FromBody] EmpregadoModel empregadoModel, int id)
+        {
+            empregadoModel.IdEmpregado = id;
+            EmpregadoModel empregado = await _empregadoRepositorio.Atualizar(empregadoModel,id);
+
+            return Ok(empregado);
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<EmpregadoModel>> Apagar( int id)
+        {
+           
+           bool apagado = await _empregadoRepositorio.Apagar(id);
+
+            return Ok(apagado);
+        }
+
 
 
 

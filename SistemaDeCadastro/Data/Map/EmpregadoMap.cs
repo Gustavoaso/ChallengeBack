@@ -11,8 +11,8 @@ namespace SistemaDeCadastro.Data.Map
             builder.HasKey(x => x.IdEmpregado);
             builder.Property(x => x.PrimeiroNome).IsRequired();
             builder.Property(x => x.UltimoNome).IsRequired();
-            builder.Property(x => x.Endereco).IsRequired();
-            builder.Property(x => x.Telefone).IsRequired().HasMaxLength(10);
+            builder.Property(x => x.Endereco);
+            builder.Property(x => x.Telefone).HasMaxLength(10);
         }
     }
 }
