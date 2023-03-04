@@ -25,6 +25,7 @@ namespace SistemaDeCadastro.Repositorios
         }
         public async Task<ProjetoModel> Adicionar(ProjetoModel projeto)
         {
+           
             await _dbContext.projetos.AddAsync(projeto);
             await _dbContext.SaveChangesAsync();
             return projeto;

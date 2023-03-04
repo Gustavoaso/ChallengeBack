@@ -10,12 +10,14 @@
 
         public int? GerenteId { get; set; }
 
-        public virtual EmpregadoModel? Gerente { get; set; }   
-       
-
-       
+        public virtual EmpregadoModel? Gerente { get; set; }
 
         
+
+
+        
+
+
     }
 }
 

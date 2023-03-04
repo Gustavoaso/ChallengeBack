@@ -2,6 +2,7 @@
 using SistemaDeCadastro.Models;
 using SistemaDeCadastro.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace SistemaDeCadastro.Repositorios
 {
@@ -25,7 +26,8 @@ namespace SistemaDeCadastro.Repositorios
         }
         public async Task<EmpregadoModel> Adicionar(EmpregadoModel empregado)
         {
-            await _dbContext.empregados.AddAsync(empregado);
+            
+              await _dbContext.empregados.AddAsync(empregado);
             await _dbContext.SaveChangesAsync();
             return empregado;
         }
@@ -66,6 +68,6 @@ namespace SistemaDeCadastro.Repositorios
             return EmpregadoPorId;
         }
 
-       
+        
     }
 }

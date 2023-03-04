@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaDeCadastro.Models;
 using SistemaDeCadastro.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+
 namespace SistemaDeCadastro.Controllers
 
 {
@@ -16,7 +18,7 @@ namespace SistemaDeCadastro.Controllers
         {
             _empregadoRepositorio = empregadoRepositorio;
         }
-
+      
         [HttpGet]
         public async Task<ActionResult<List<EmpregadoModel>>> BuscarTodosEmpregados()
 
@@ -25,7 +27,7 @@ namespace SistemaDeCadastro.Controllers
             return Ok(empregado);
 
         }
-
+   
         [HttpGet("{id}") ]
         public async Task<ActionResult<EmpregadoModel>> BuscarPorId(int id)
 
@@ -34,7 +36,7 @@ namespace SistemaDeCadastro.Controllers
             return Ok(empregado);
 
         }
-
+        
         [HttpPost]
 
         public async Task<ActionResult<EmpregadoModel>> Cadastrar([FromBody] EmpregadoModel empregadoModel)
@@ -43,7 +45,7 @@ namespace SistemaDeCadastro.Controllers
 
             return Ok(empregado);
         }
-
+        
         [HttpPut("{id}")]
         public async Task<ActionResult<EmpregadoModel>> Atualizar([FromBody] EmpregadoModel empregadoModel, int id)
         {
@@ -52,6 +54,7 @@ namespace SistemaDeCadastro.Controllers
 
             return Ok(empregado);
         }
+     
         [HttpDelete("{id}")]
         public async Task<ActionResult<EmpregadoModel>> Apagar( int id)
         {

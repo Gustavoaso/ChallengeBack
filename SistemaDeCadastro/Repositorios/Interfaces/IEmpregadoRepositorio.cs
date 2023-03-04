@@ -6,7 +6,8 @@ namespace SistemaDeCadastro.Interfaces
     {
         Task<List<EmpregadoModel>> BuscarTodosEmpregados();
         Task<EmpregadoModel>  BuscarPorId(int Id);
-        Task<EmpregadoModel> Adicionar (EmpregadoModel empregado);
+        Task<EmpregadoModel> Adicionar(EmpregadoModel empregado);
+        
 
         Task<EmpregadoModel> Atualizar(EmpregadoModel empregado, int Id);
         Task<bool> Apagar(int Id);  

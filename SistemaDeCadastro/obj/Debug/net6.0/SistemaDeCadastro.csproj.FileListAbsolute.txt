@@ -58,3 +58,4 @@ C:\Users\Gustavo\Desktop\ProjetoGustavo\SistemaDeCadastro\SistemaDeCadastro\obj\
 C:\Users\Gustavo\Desktop\ProjetoGustavo\SistemaDeCadastro\SistemaDeCadastro\obj\Debug\net6.0\SistemaDeCadastro.pdb
 C:\Users\Gustavo\Desktop\ProjetoGustavo\SistemaDeCadastro\SistemaDeCadastro\obj\Debug\net6.0\SistemaDeCadastro.genruntimeconfig.cache
 C:\Users\Gustavo\Desktop\ProjetoGustavo\SistemaDeCadastro\SistemaDeCadastro\obj\Debug\net6.0\ref\SistemaDeCadastro.dll
+C:\Users\Gustavo\Desktop\ProjetoGustavo\SistemaDeCadastro\SistemaDeCadastro\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

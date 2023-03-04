@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaDeCadastro.Models;
 using SistemaDeCadastro.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+
 namespace SistemaDeCadastro.Controllers
 
 {
@@ -16,7 +18,7 @@ namespace SistemaDeCadastro.Controllers
         {
             _projetoRepositorio = projetoRepositorio;
         }
-
+    
         [HttpGet]
         public async Task<ActionResult<List<ProjetoModel>>> BuscaTodosProjetos()
 
@@ -25,7 +27,7 @@ namespace SistemaDeCadastro.Controllers
             return Ok(projeto);
 
         }
-
+     
         [HttpGet("{id}")]
         public async Task<ActionResult<ProjetoModel>> BuscarPorId(int id)
 
@@ -34,7 +36,7 @@ namespace SistemaDeCadastro.Controllers
             return Ok(projeto);
 
         }
-
+     
         [HttpPost]
 
         public async Task<ActionResult<ProjetoModel>> Cadastrar([FromBody] ProjetoModel projetoModel)
@@ -44,7 +46,7 @@ namespace SistemaDeCadastro.Controllers
 
             return Ok(projeto);
         }
-
+  
         [HttpPut("{id}")]
         public async Task<ActionResult<ProjetoModel>> Atualizar([FromBody] ProjetoModel projetoModel, int id)
         {
@@ -53,6 +55,7 @@ namespace SistemaDeCadastro.Controllers
 
             return Ok(projeto);
         }
+   
         [HttpDelete("{id}")]
         public async Task<ActionResult<EmpregadoModel>> Apagar(int id)
         {
